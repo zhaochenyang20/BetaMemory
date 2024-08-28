@@ -24,68 +24,6 @@ MAX_RETRY = 20
 INF = 200
 
 
-class EnvironmentHistory:
-    def __init__(
-        self,
-        base_query: str,
-        start_info,
-        memory: List[str],
-        history: List[Dict[str, str]] = [],
-    ) -> None:
-
-        def _get_base_query(base_query: str, start_info: str, memory: List[str]) -> str:
-            query = base_query
-
-            # add memory if it exists
-
-            query += f"\nHere is the task:\n{start_info}"
-            if len(memory) > 0:
-                query += "\n\nBelow are your reflection memory for the task, you should apply them wisely in your planning:\n[memory start]\n"
-                for i, m in enumerate(memory):
-                    query += f"\nReflection from Trial {i}:\n{m.strip()}"
-                query += "\n[memory end]\n"
-            return query
-
-        self._cur_query: str = f"{_get_base_query(base_query, start_info, memory)}"
-        self._history: List[Dict[str, str]] = history
-        self._last_action: str = ""
-        self._is_exhausted: bool = False
-
-    def add(self, label: str, value: str) -> None:
-        assert label in ["action", "observation", "human_edit"]
-        self._history += [
-            {
-                "label": label,
-                "value": value,
-            }
-        ]
-        if label == "action":
-            if value == self._last_action:
-                self._is_exhausted = True
-            else:
-                self._last_action = value
-
-    def check_is_exhausted(self) -> bool:
-        return self._is_exhausted
-
-    def reset(self) -> None:
-        self._history = []
-
-    def __str__(self) -> str:
-        s: str = self._cur_query + "\n"
-        for i, item in enumerate(self._history):
-            if item["label"] == "action":
-                s += f'> {item["value"]}'
-            elif item["label"] == "observation":
-                s += item["value"]
-            # NOT CURRENTLY SUPPORTED
-            elif item["label"] == "human_edit":
-                s += f'[human edit]: {item["value"]}'
-            if i != len(self._history) - 1:
-                s += "\n"
-        return s
-
-
 class ModelServer:
     def __init__(self, config_path: str = None) -> None:
         running_server_sizes = get_running_server_sizes()
@@ -116,11 +54,12 @@ class ModelServer:
             )
 
     def turn_off_running_flag(self) -> None:
-        with open(self.config_path, "r", encoding="utf-8") as rf:
-            info_dict = json.load(rf)
-            info_dict["is_running"] = False
-        with open(self.config_path, "w", encoding="utf-8") as wf:
-            json.dump(info_dict, wf, indent=4)
+        pass
+        # with open(self.config_path, "r", encoding="utf-8") as rf:
+        #     info_dict = json.load(rf)
+        #     info_dict["is_running"] = False
+        # with open(self.config_path, "w", encoding="utf-8") as wf:
+        #     json.dump(info_dict, wf, indent=4)
 
     def _manage_model_server(
         self, latency_bound, model_size: str, get_embedding: bool = False
@@ -161,8 +100,8 @@ class ModelServer:
                     f"Attempt {build_count} to build model server {model_size}B failed."
                 )
                 if build_count > MAX_RETRY:
-                    assert self.config_path is not None, "Config path is required."
-                    self.turn_off_running_flag()
+                    # assert self.config_path is not None, "Config path is required."
+                    # self.turn_off_running_flag()
                     raise RuntimeError(
                         f"Could not build model server after {MAX_RETRY} attempts."
                     )
@@ -215,23 +154,14 @@ class ModelServer:
                 # )
                 start_time = time.time()
                 if not get_embedding:
-                    if pure_completion:
-                        response = client.completions.create(
-                            model="8bbase",
-                            prompt=message,
-                            max_tokens=max_tokens,
-                            temperature=temperature,
-                            # stop=["\n"],
-                        )
-                    else:
-                        assert type(message) == list, "Message should be a list."
-                        response = client.chat.completions.create(
-                            model=model_name,
-                            messages=message,
-                            max_tokens=max_tokens,
-                            temperature=temperature,
-                            stop=["<|eot_id|>"],
-                        )
+                    assert type(message) == list, "Message should be a list."
+                    response = client.chat.completions.create(
+                        model=model_name,
+                        messages=message,
+                        max_tokens=max_tokens,
+                        temperature=temperature,
+                        stop=["<|eot_id|>"],
+                    )
                 else:
                     assert type(message) == str, "Message should be a string."
                     response = client.embeddings.create(
@@ -252,15 +182,8 @@ class ModelServer:
                         get_embedding=get_embedding,
                     )
 
-                if pure_completion:
-                    return str(response.choices[0].text)
-                else:
-                    return (
-                        str(response.choices[0].message.content)
-                        if not get_embedding
-                        else response.data[0].embedding
-                    )
-
+                return response
+            
             except Exception as e:
                 print(f"Attempt {attempt + 1} to get response failed with error: {e}")
                 print(f"Rebuilding model server {model_size}B.")
@@ -275,8 +198,8 @@ class ModelServer:
         )
         print(error_message)
         print(message)
-        assert self.config_path is not None, "Config path is required."
-        self.turn_off_running_flag()
+        # assert self.config_path is not None, "Config path is required."
+        # self.turn_off_running_flag()
         raise RuntimeError(error_message)
 
 
