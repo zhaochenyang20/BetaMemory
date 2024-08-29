@@ -1,8 +1,8 @@
-standard_prompt = '''
+standard_prompt = """
 Write a coherent passage of 4 short paragraphs. The end sentence of each paragraph must be: {input}
-'''
+"""
 
-reflection_prompt = '''You are an advanced reasoning agent that can improve based on self refection. You will be given a previous reasoning trial in which you were given access to an Docstore API environment and a question to answer. You were unsuccessful in answering the question either because you guessed the wrong answer with Finish[<answer>], or you used up your set number of reasoning steps. In a few sentences, Diagnose a possible reason for failure and devise a new, concise, high level plan that aims to mitigate the same failure. Use complete sentences.  
+reflection_prompt = """You are an advanced reasoning agent that can improve based on self refection. You will be given a previous reasoning trial in which you were given access to an Docstore API environment and a question to answer. You were unsuccessful in answering the question either because you guessed the wrong answer with Finish[<answer>], or you used up your set number of reasoning steps. In a few sentences, Diagnose a possible reason for failure and devise a new, concise, high level plan that aims to mitigate the same failure. Use complete sentences.  
 Here are some examples:
 Previous Trial:
 Question: The Rome Protocols were signed by three Prime Ministers one of which was assassinated as part of what?
@@ -54,9 +54,9 @@ Observation 2: Episode finished, reward = 0
 Reflection: I appeared to have retrieved the correct information about The Oberoi Family and the location of it's head office, and provided a corresponding answer. However this answer does not exactly match the ground truth answer so I should try a different wording, such as Delhi.
 
 Previous trial:
-{trajectory}Reflection:'''
+{trajectory}Reflection:"""
 
-cot_prompt = '''
+cot_prompt = """
 Solve a question answering task with interleaving Thought, Action, Observation steps. Thought can reason about the current situation, and Action can be three types: 
 (1) Search[entity], which searches the exact entity on Wikipedia and returns the first paragraph if it exists. If not, it will return some similar entities to search.
 (2) Lookup[keyword], which returns the next sentence containing keyword in the current passage.
@@ -98,9 +98,9 @@ Observation 2: (Result 1 / 1) Milhouse was named after U.S. president Richard Ni
 Thought 3: Milhouse was named after U.S. president Richard Nixon, so the answer is Richard Nixon.
 Action 3: Finish[President Richard Nixon]
 
-'''
+"""
 
-cot_prompt_short = '''
+cot_prompt_short = """
 Solve a question answering task with interleaving Thought, Action, Observation steps. Thought can reason about the current situation, and Action can be three types: 
 (1) Search[entity], which searches the exact entity on Wikipedia and returns the first paragraph if it exists. If not, it will return some similar entities to search.
 (2) Lookup[keyword], which returns the next sentence containing keyword in the current passage.
@@ -133,9 +133,9 @@ Thought 3: Milhouse was named after U.S. president Richard Nixon, so the answer 
 Action 3: Finish[President Richard Nixon]
 
 {input}
-'''
+"""
 
-cot_prompt_feedback_short = '''You are also an advanced reasoning agent that can improve based on self refection. Solve a question answering task with interleaving Thought, Action, Observation steps. Thought can reason about the current situation, and Action can be three types: 
+cot_prompt_feedback_short = """You are also an advanced reasoning agent that can improve based on self refection. Solve a question answering task with interleaving Thought, Action, Observation steps. Thought can reason about the current situation, and Action can be three types: 
 (1) Search[entity], which searches the exact entity on Wikipedia and returns the first paragraph if it exists. If not, it will return some similar entities to search.
 (2) Lookup[keyword], which returns the next sentence containing keyword in the current passage.
 (3) Finish[answer], which returns the answer and finishes the task.
@@ -171,9 +171,9 @@ You have attempted to answer the following question before and failed. The follo
 {trajectories}
 
 {input}
-'''
+"""
 
-cot_prompt_feedback = '''You are also an advanced reasoning agent that can improve based on self refection. Solve a question answering task with interleaving Thought, Action, Observation steps. Thought can reason about the current situation, and Action can be three types: 
+cot_prompt_feedback = """You are also an advanced reasoning agent that can improve based on self refection. Solve a question answering task with interleaving Thought, Action, Observation steps. Thought can reason about the current situation, and Action can be three types: 
 (1) Search[entity], which searches the exact entity on Wikipedia and returns the first paragraph if it exists. If not, it will return some similar entities to search.
 (2) Lookup[keyword], which returns the next sentence containing keyword in the current passage.
 (3) Finish[answer], which returns the answer and finishes the task.
@@ -220,33 +220,33 @@ You have attempted to answer the following question before and failed, either be
 When providing the thought and action for the current trial, that into account these failed trajectories and make sure not to repeat the same mistakes and incorrect answers. 
 
 {input}
-'''
+"""
 
-vote_prompt = '''Analyze the trajectories of a solution to a question answering task. The trajectories are labeled by pairs of thoughts that can reason about the current situation and actions that can be three types: 
+vote_prompt = """Analyze the trajectories of a solution to a question answering task. The trajectories are labeled by pairs of thoughts that can reason about the current situation and actions that can be three types: 
 (1) Search[entity], which searches the exact entity on Wikipedia and returns the first paragraph if it exists. If not, it will return some similar entities to search.
 (2) Lookup[keyword], which returns the next sentence containing keyword in the current passage.
 (3) Finish[answer], which returns the answer and finishes the task.
 
 Given a question and a list of trajectories, decide which trajectory is most promising. Analyze each trajectory in detail and consider possible errors, then conclude in the last line "The best trajectory is {s}", where s the integer id of the trajectory.
-'''
+"""
 
-compare_prompt = '''Analyze the trajectories of a solution to a question answering task. The trajectories are labeled by pairs of thoughts that can reason about the current situation and actions that can be three types: 
+compare_prompt = """Analyze the trajectories of a solution to a question answering task. The trajectories are labeled by pairs of thoughts that can reason about the current situation and actions that can be three types: 
 (1) Search[entity], which searches the exact entity on Wikipedia and returns the first paragraph if it exists. If not, it will return some similar entities to search.
 (2) Lookup[keyword], which returns the next sentence containing keyword in the current passage.
 (3) Finish[answer], which returns the answer and finishes the task.
 
 Briefly analyze the correctness of the following two trajectories. Conclude in the last line "The more correct trajectory is 1", "The more correct trajectory is 2", or "The two trajectories are similarly correct".
-'''
+"""
 
-score_prompt = '''Analyze the trajectories of a solution to a question answering task. The trajectories are labeled by pairs of thoughts that can reason about the current situation and actions that can be three types: 
+score_prompt = """Analyze the trajectories of a solution to a question answering task. The trajectories are labeled by pairs of thoughts that can reason about the current situation and actions that can be three types: 
 (1) Search[entity], which searches the exact entity on Wikipedia and returns the first paragraph if it exists. If not, it will return some similar entities to search.
 (2) Lookup[keyword], which returns the next sentence containing keyword in the current passage.
 (3) Finish[answer], which returns the answer and finishes the task.
 
 Given a question and a trajectory, analyze the following trajectory, then at the last line conclude "Thus the correctness score is {s}", where s is an integer from 1 to 10.
-'''
+"""
 
-value_prompt = '''Analyze the trajectories of a solution to a question answering task. The trajectories are labeled by environmental observations about the situation, thoughts that can reason about the current situation and actions that can be three types: 
+value_prompt = """Analyze the trajectories of a solution to a question answering task. The trajectories are labeled by environmental observations about the situation, thoughts that can reason about the current situation and actions that can be three types: 
 (1) Search[entity], which searches the exact entity on Wikipedia and returns the first paragraph if it exists. If not, it will return some similar entities to search.
 (2) Lookup[keyword], which returns the next sentence containing keyword in the current passage.
 (3) Finish[answer], which returns the answer and finishes the task.
@@ -289,9 +289,9 @@ Observation 1: Arthur's Magazine (1844\u00e2\u0080\u00931846) was an American li
 Thus the correctness score is 10
 
 {input}
-'''
+"""
 
-value_prompt_feedback = '''Analyze the trajectories of a solution to a question answering task. The trajectories are labeled by environmental observations about the situation, thoughts that can reason about the current situation and actions that can be three types: 
+value_prompt_feedback = """Analyze the trajectories of a solution to a question answering task. The trajectories are labeled by environmental observations about the situation, thoughts that can reason about the current situation and actions that can be three types: 
 (1) Search[entity], which searches the exact entity on Wikipedia and returns the first paragraph if it exists. If not, it will return some similar entities to search.
 (2) Lookup[keyword], which returns the next sentence containing keyword in the current passage.
 (3) Finish[answer], which returns the answer and finishes the task.
@@ -331,9 +331,9 @@ Action 3: Finish[President Richard Nixon]
 Thus the correctness score is 10
 
 {input}
-'''
+"""
 
-value_prompt_reasoning = '''You are an advanced reasoning agent that can improve based on self refection. Analyze the trajectories of your previous solutions to a question answering task. The trajectories are labeled by environmental observations about the situation, thoughts that can reason about the current situation and actions that can be three types: 
+value_prompt_reasoning = """You are an advanced reasoning agent that can improve based on self refection. Analyze the trajectories of your previous solutions to a question answering task. The trajectories are labeled by environmental observations about the situation, thoughts that can reason about the current situation and actions that can be three types: 
 (1) Search[entity], which searches the exact entity on Wikipedia and returns the first paragraph if it exists. If not, it will return some similar entities to search.
 (2) Lookup[keyword], which returns the next sentence containing keyword in the current passage.
 (3) Finish[answer], which returns the answer and finishes the task.
@@ -391,9 +391,9 @@ This trajectory is correct as all of my thoughts and actions are correct. It mak
 Thus the correctness score is 10
 
 {input}
-'''
+"""
 
-value_prompt_reasoning_feedback = '''Analyze the trajectories of a solution to a question answering task. The trajectories are labeled by environmental observations about the situation, thoughts that can reason about the current situation and actions that can be three types: 
+value_prompt_reasoning_feedback = """Analyze the trajectories of a solution to a question answering task. The trajectories are labeled by environmental observations about the situation, thoughts that can reason about the current situation and actions that can be three types: 
 (1) Search[entity], which searches the exact entity on Wikipedia and returns the first paragraph if it exists. If not, it will return some similar entities to search.
 (2) Lookup[keyword], which returns the next sentence containing keyword in the current passage.
 (3) Finish[answer], which returns the answer and finishes the task.
@@ -453,9 +453,9 @@ Thus the correctness score is 10
 {trajectories}
 
 {input}
-'''
+"""
 
-value_prompt_reasoning_feedback_short = '''Analyze the trajectories of a solution to a question answering task. The trajectories are labeled by environmental observations about the situation, thoughts that can reason about the current situation and actions that can be three types: 
+value_prompt_reasoning_feedback_short = """Analyze the trajectories of a solution to a question answering task. The trajectories are labeled by environmental observations about the situation, thoughts that can reason about the current situation and actions that can be three types: 
 (1) Search[entity], which searches the exact entity on Wikipedia and returns the first paragraph if it exists. If not, it will return some similar entities to search.
 (2) Lookup[keyword], which returns the next sentence containing keyword in the current passage.
 (3) Finish[answer], which returns the answer and finishes the task.
@@ -492,9 +492,9 @@ Thus the correctness score is 10
 {trajectories}
 
 {input}
-'''
+"""
 
-rap_prompt = '''
+rap_prompt = """
 Solve a question answering task with interleaving Thought and Action steps. Thought can reason about the current situation, and Action can be three types: 
 (1) Search[entity], which searches the exact entity on Wikipedia and returns the first paragraph if it exists. If not, it will return some similar entities to search.
 (2) Lookup[keyword], which returns the next sentence containing keyword in the current passage.
@@ -530,4 +530,4 @@ Thought 3: Milhouse was named after U.S. president Richard Nixon, so the answer 
 Action 3: Finish[President Richard Nixon]
 
 {input}
-'''
+"""

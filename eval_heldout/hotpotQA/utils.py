@@ -54,12 +54,11 @@ class ModelServer:
             )
 
     def turn_off_running_flag(self) -> None:
-        pass
-        # with open(self.config_path, "r", encoding="utf-8") as rf:
-        #     info_dict = json.load(rf)
-        #     info_dict["is_running"] = False
-        # with open(self.config_path, "w", encoding="utf-8") as wf:
-        #     json.dump(info_dict, wf, indent=4)
+        with open(self.config_path, "r", encoding="utf-8") as rf:
+            info_dict = json.load(rf)
+            info_dict["is_running"] = False
+        with open(self.config_path, "w", encoding="utf-8") as wf:
+            json.dump(info_dict, wf, indent=4)
 
     def _manage_model_server(
         self, latency_bound, model_size: str, get_embedding: bool = False
@@ -100,8 +99,8 @@ class ModelServer:
                     f"Attempt {build_count} to build model server {model_size}B failed."
                 )
                 if build_count > MAX_RETRY:
-                    # assert self.config_path is not None, "Config path is required."
-                    # self.turn_off_running_flag()
+                    assert self.config_path is not None, "Config path is required."
+                    self.turn_off_running_flag()
                     raise RuntimeError(
                         f"Could not build model server after {MAX_RETRY} attempts."
                     )
@@ -113,7 +112,6 @@ class ModelServer:
         temperature: float = 0.0,
         max_tokens: int = 256,
         get_embedding: bool = False,
-        pure_completion: bool = False,
     ) -> str:
         # print(f"Message: {message}")
         assert model_size in ["70", "8", "7", "2"]
@@ -160,7 +158,7 @@ class ModelServer:
                         messages=message,
                         max_tokens=max_tokens,
                         temperature=temperature,
-                        stop=["<|eot_id|>","\nObservation"],
+                        stop=["<|eot_id|>", "\nObservation", "Observation"],
                     )
                 else:
                     assert type(message) == str, "Message should be a string."
@@ -181,11 +179,12 @@ class ModelServer:
                         model_size=model_size,
                         get_embedding=get_embedding,
                     )
+
                 if get_embedding:
                     return response.data[0].embedding
+                else:
+                    return response
 
-                return response
-            
             except Exception as e:
                 print(f"Attempt {attempt + 1} to get response failed with error: {e}")
                 print(f"Rebuilding model server {model_size}B.")
@@ -200,8 +199,8 @@ class ModelServer:
         )
         print(error_message)
         print(message)
-        # assert self.config_path is not None, "Config path is required."
-        # self.turn_off_running_flag()
+        assert self.config_path is not None, "Config path is required."
+        self.turn_off_running_flag()
         raise RuntimeError(error_message)
 
 
@@ -211,9 +210,9 @@ if __name__ == "__main__":
     message = BENCHMAK_MESSAGE
     # message = []
     for i in range(10):
-         print(f"Completion {i}:")
-         complition = server.get_completion_or_embedding("8", message)
-         print(complition)
+        print(f"Completion {i}:")
+        complition = server.get_completion_or_embedding("8", message)
+        print(complition)
 
     embedding = None
     for i in range(10):

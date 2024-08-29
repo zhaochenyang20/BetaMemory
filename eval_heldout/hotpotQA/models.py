@@ -1,8 +1,15 @@
 import openai
 from utils import ModelServer
 import time
-
 import re
+
+server = None
+
+
+def build_server(config_path):
+    global server
+    server = ModelServer(config_path=config_path)
+
 
 def split_and_keep_prefixes(s, delimiters):
     # 构造一个包含所有分隔符的正则表达式，使用捕获组以保留分隔符
@@ -12,46 +19,53 @@ def split_and_keep_prefixes(s, delimiters):
     # 重新组合分割后的字符串，使每部分以分隔符开头
     result = [parts[0]]
     for i in range(1, len(parts), 2):
-        result.append(parts[i] + (parts[i+1] if i+1 < len(parts) else ''))
+        result.append(parts[i] + (parts[i + 1] if i + 1 < len(parts) else ""))
     return result
 
-server = ModelServer()
 
 def online_embed(traj):
     return server.get_completion_or_embedding(
-                        "7",
-                        message=traj,
-                        get_embedding=True,
-                    )
+        "7",
+        message=traj,
+        get_embedding=True,
+    )
 
-def gpt(prompt, model="gpt-3.5-turbo", temperature=1.0, max_tokens=100, n=1, stop=None) -> list:
-    def call_openai_api(messages, model, temperature, max_tokens, n, stop):
+
+def gpt(prompt, model_size="8", temperature=1.0, max_tokens=100, n=1) -> list:
+    def call_openai_api(messages, model_size, temperature, max_tokens, n):
         outputs = []
         while n > 0:
             cnt = min(n, 20)
             n -= cnt
-            res = server.get_completion_or_embedding("8", messages)
-            outputs.extend([re.sub(r'^Thought \d+: ', '', choice.message.content) for choice in res.choices])
+            res = server.get_completion_or_embedding(
+                model_size, messages, temperature, max_tokens
+            )
+            outputs.extend(
+                [
+                    re.sub(r"^Thought \d+: ", "", choice.message.content)
+                    for choice in res.choices
+                ]
+            )
         return outputs
-    
-    #messages = [{"role": "user", "content": prompt}]
-    messages=[]
+
+    # messages = [{"role": "user", "content": prompt}]
+    messages = []
     # 使用正则表达式来分割字符串
     # 正则表达式解释：'Thought \d+:|Observation \d+:' 匹配 'Thought ' 后跟一个或多个数字（\d+）和冒号
     # 或者 'Observation ' 后跟一个或多个数字和冒号
-    parts = re.split(r'(Thought \d+:|Observation \d+:|Question:)', prompt)
+    parts = re.split(r"(Thought \d+:|Observation \d+:|Question:)", prompt)
 
     # 过滤空字符串
-    #parts = [part.strip() for part in parts if part.strip()]
+    # parts = [part.strip() for part in parts if part.strip()]
     result = [parts[0].strip()]
     for i in range(1, len(parts), 2):
         if i + 1 < len(parts):
-            result.append(parts[i] + " "+parts[i + 1].strip())
-    #print(result)
-    #time.sleep(30)
+            result.append(parts[i] + " " + parts[i + 1].strip())
+    # print(result)
+    # time.sleep(30)
     result.pop()
-    #print(result)
-    #print("\n\n\n")
+    # print(result)
+    # print("\n\n\n")
     for msg in result:
         if msg.startswith("Solve"):
             messages.append({"role": "user", "content": msg})
@@ -61,7 +75,8 @@ def gpt(prompt, model="gpt-3.5-turbo", temperature=1.0, max_tokens=100, n=1, sto
             messages.append({"role": "user", "content": msg})
         if msg.startswith("Question"):
             messages.append({"role": "user", "content": msg})
-    #print(messages)
-    #time.sleep(30)
-    return call_openai_api(messages, model=model, temperature=temperature, max_tokens=max_tokens, n=n, stop=stop)
-
+    # print(messages)
+    # time.sleep(30)
+    return call_openai_api(
+        messages, model_size=model_size, temperature=temperature, max_tokens=max_tokens, n=n
+    )
