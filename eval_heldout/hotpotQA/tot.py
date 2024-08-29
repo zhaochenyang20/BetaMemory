@@ -100,6 +100,8 @@ class Node:
         self.em = 0  # Exact match, evaluation metric
         self.knn=knn
 
+    def ques(self):
+        return self.question
     def uct(self):
         if self.visits == 0:
             #return float('inf')
@@ -136,6 +138,9 @@ def node_trajectory_to_text(node_string):
     lines = node_string.split('\n')
     formatted_lines = []
     for line in lines:
+        if line.startswith("Question"):
+            formatted_lines.append(line)
+            continue
         try:
             depth = int(line.split(",")[0].split("=")[1].strip())
             thought = line.split(", thought=")[1].split(", action=")[0].strip()
@@ -151,7 +156,7 @@ def node_trajectory_to_text(node_string):
                 formatted_lines.append(f"Action {depth}: {action}")
             if observation:
                 formatted_lines.append(f"Observation {depth}: {observation}")
-    
+    formatted_lines.pop()
     return '\n'.join(formatted_lines)
 
 def traj_depth(node_string):
@@ -179,9 +184,13 @@ def collect_all_nodes(node):
 
 def collect_trajectory(node):
     trajectory = []
+    ques=""
     while node:
+        ques="Question: "+node.question
         trajectory.append(str(node))
         node = node.parent
+    if len(ques)>0:
+        trajectory.append(ques)
     return '\n'.join(reversed(trajectory))
 
 def get_substrings_between_brackets(s):
@@ -210,15 +219,20 @@ def dfs_search(args, task, idx, iterations, knnret,depth_limit=7, to_print=True)
     if knnret:
         for traj in knnret:
             format_traj=node_trajectory_to_text(traj['trajectory'])
-            format_traj+=f"Action {traj_depth(traj['trajectory'])}: Finish[{get_substrings_between_brackets(traj['final_answer'])}]"+"\n"
+            #format_traj+=f"Action {traj_depth(traj['trajectory'])}: Finish[{get_substrings_between_brackets(traj['final_answer'])}]"+"\n"
             knn.append(format_traj)
-            
+    last_node=None
     while stack and it < iterations:
         node = stack.pop()
+        last_node=node
         logging.info(f"DFS at node depth {node.depth}...")
         
         if node.is_terminal and node.reward == 1:
             logging.info(f"Terminal node with reward 1 found at depth {node.depth}")
+            return node.state, node.value, all_nodes, node.reward, node.em,failed_trajectories,success_trajectories
+        
+        if node.is_terminal and node.reward == 0:
+            logging.info(f"Terminal node with reward 0 found at depth {node.depth}")
             return node.state, node.value, all_nodes, node.reward, node.em,failed_trajectories,success_trajectories
 
         if node.depth >= depth_limit:
@@ -234,6 +248,9 @@ def dfs_search(args, task, idx, iterations, knnret,depth_limit=7, to_print=True)
         it += 1
     # If we reach here, no solution was found
     logging.info("All paths explored. No solution found.")
+    if len(failed_trajectories)==0:
+        trajectory = collect_trajectory(last_node)
+        failed_trajectories.append({'trajectory': trajectory, 'final_answer': ""})
     return root, 0, all_nodes, 0, 0,failed_trajectories,success_trajectories
 
 

@@ -8,7 +8,7 @@ port % model_size == 0
 SERVER_IP_UCLA_04 = "131.179.88.84"
 SERVER_IP_IU = "127.0.0.1"
 MODEL_NAME_70B = "70bins"
-MODEL_NAME_8B = "8bbase"
+MODEL_NAME_8B = "8bins"
 EMBEDDING_7B = "7embed"
 # EMBEDDING_7B = "e5_7b"
 EMBEDDING_2B = "2embed"
@@ -128,39 +128,40 @@ Completion_Servers = [
         model_path=MODEL_NAME_8B,
         gpus=[7],
     ),
-    Server(
-        ip=SERVER_IP_IU,
-        port=8472,
-        model_size="8",
-        model_path=MODEL_NAME_8B,
-        gpus=[],
-    ),
-    Server(
-        ip=SERVER_IP_IU,
-        port=8480,
-        model_size="8",
-        model_path=MODEL_NAME_8B,
-        gpus=[],
-    ),
-    Server(
-        ip=SERVER_IP_IU,
-        port=8496,
-        model_size="8",
-        model_path=MODEL_NAME_8B,
-        gpus=[],
-    ),
+    #Server(
+    #    ip=SERVER_IP_IU,
+    #    port=8472,
+    #    model_size="8",
+    #    model_path=MODEL_NAME_8B,
+    #    gpus=[],
+    #),
+    #Server(
+    #    ip=SERVER_IP_IU,
+    #    port=8480,
+    #    model_size="8",
+    #    model_path=MODEL_NAME_8B,
+    #    gpus=[],
+    #),
+    #Server(
+    #    ip=SERVER_IP_IU,
+    #    port=8496,
+    #    model_size="8",
+    #    model_path=MODEL_NAME_8B,
+    #    gpus=[],
+    #),
 ]
 
 #! IU 服务器上配置 8b 模型，被统一映射到 04 local host 的 8464 端口
 
 Embedding_Servers = [
-     Server(
-         ip=SERVER_IP_IU,
-         port=8488,
-         model_size="7",
-         model_path=EMBEDDING_7B,
-         gpus=[],
-     ),
+     #Server(
+     #    ip=SERVER_IP_IU,
+     #    port=8488,
+     #    model_size="7",
+     #    model_path=EMBEDDING_7B,
+     #    gpus=[],
+     #),
+     
      #Server(
      #    ip=SERVER_IP_IU,
      #    port=8496,
@@ -168,6 +169,7 @@ Embedding_Servers = [
      #    model_path=EMBEDDING_7B,
      #    gpus=[],
      #),
+     
     Server(
         ip=SERVER_IP_UCLA_04,
         port=7777,
@@ -175,6 +177,7 @@ Embedding_Servers = [
         model_path=EMBEDDING_7B,
         gpus=[0],
     ),
+    
     #Server(
     #    ip=SERVER_IP_UCLA_04,
     #    port=7784,
@@ -396,9 +399,10 @@ def get_running_server_sizes(SERVERS=Completion_Servers + Embedding_Servers):
 
 
 if __name__ == "__main__":
-    server, min_latency = get_fastest_server(initial_latency=10, model_size="8", test_embedding_servers=False)
-    print(server)
+    #server, min_latency = get_fastest_server(initial_latency=10, model_size="8", test_embedding_servers=False)
+    #print(server)
     server, min_latency = get_fastest_server(initial_latency=10, model_size="7", test_embedding_servers=True)
     print(server)
+    
     # get_all_latency(test_embedding_servers=True)
     # get_all_latency(test_embedding_servers=False)

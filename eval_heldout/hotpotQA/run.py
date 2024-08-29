@@ -1,12 +1,15 @@
 import os
 import json
 import argparse
+import numpy as np
+from models import online_embed
+import faiss
 
 from hotpotqa import HotPotQATask
-from models import gpt_usage
-from lats import lats_search
+#from models import gpt_usage
+#from lats import lats_search
 from tot import dfs_search
-from rap import mcts_search
+#from rap import mcts_search
 import logging
 import random
 
@@ -31,11 +34,18 @@ def run(args):
     wins={}
     lose={}
     succ_trjs=[]
+    trajectories = []
+    embedding_array = np.zeros((0, 3584))
     for trial in range(10):
+        print("Trial")
+        print(trial)
         count = 0
         task_accs = []
         info = []
-
+        delta_trj=[]
+        emb_db = faiss.IndexFlatL2(3584)
+        emb_db.add(embedding_array.astype("float32"))
+        
         for i in range(args.task_start_index, args.task_end_index):
             # solve
             if i in wins:
@@ -45,14 +55,26 @@ def run(args):
             if i in lose:
                 prev=lose[i]
                 # doing knn here with prev lose
-                knnret=random_selection(succ_trjs,5)
+                #knnret=random_selection(succ_trjs,5)
+                fail_vec = online_embed(str(prev))
+                _, indices = emb_db.search(
+                            np.array(fail_vec).reshape(1, -1).astype("float32"),
+                            3,
+                        )
+                for ind in indices[0]:
+                    knnret.append(trajectories[ind])
             state, value, all_nodes, reward, em ,failt,succt= dfs_search(args, task, i, args.iterations,knnret)
             if failt:
+                print("Fail")
+                print(i)
                 lose[i]=failt[0]
             if succt:
+                print("Success")
+                print(i)
                 wins[i]=1
                 # add succt[0] to knn pool
                 succ_trjs.append(succt[0])
+                delta_trj.append(succt[0])
             # log main metric
             if em is None:
                 em = 0
@@ -60,8 +82,10 @@ def run(args):
             cnt_avg = sum(task_accs) / len(task_accs)
             print(i, 'len(task_accs)', len(task_accs), 'cnt_avg', cnt_avg, '\n')
             #all_nodes_dict = [(node.to_dict(), value) for node, value in all_nodes]
-        
-       
+        for trj in delta_trj:
+            vec = online_embed(str(trj))
+            trajectories.append(trj)
+            embedding_array = np.vstack((embedding_array, np.array(vec)))
     n = args.task_end_index - args.task_start_index
     # print('usage_so_far', gpt_usage(args.backend))
 

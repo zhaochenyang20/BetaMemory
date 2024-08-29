@@ -1,3 +1,5 @@
 tgi_data/
 __pycache__/
 .DS_Store
+eval_heldout/hotpotQA/8bins
+eval_heldout/hotpotQA/7embed

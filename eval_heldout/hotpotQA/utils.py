@@ -160,7 +160,7 @@ class ModelServer:
                         messages=message,
                         max_tokens=max_tokens,
                         temperature=temperature,
-                        stop=["<|eot_id|>"],
+                        stop=["<|eot_id|>","\nObservation"],
                     )
                 else:
                     assert type(message) == str, "Message should be a string."
@@ -181,6 +181,8 @@ class ModelServer:
                         model_size=model_size,
                         get_embedding=get_embedding,
                     )
+                if get_embedding:
+                    return response.data[0].embedding
 
                 return response
             
