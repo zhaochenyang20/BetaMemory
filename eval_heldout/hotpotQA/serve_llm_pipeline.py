@@ -69,8 +69,8 @@ def get_comond_infos(server: Server):
     --context-length {MAX_CONTEXT_LENGTH if server.model_size != "7" else 32768} --chunked-prefill-size {CHUNKED_PREFILL_SIZE if server.model_size != "7" else int(32768 / 8)} \
     --port {server.port} --host 0.0.0.0 --api-key sk-1dwqsdv4r3wef3rvefg34ef1dwRv """
     #! host 0.0.0.0 可以用于广播
-    if server.model_size == "8" or server.model_size == "7":
-        command += " --enable-torch-compile "
+    # if server.model_size == "8" or server.model_size == "7":
+    #     command += " --enable-torch-compile "
     if server.model_size == "7":
         command += " --is-embedding "
     #! 8b 模型需要开启 torch compile，70b 还没优化

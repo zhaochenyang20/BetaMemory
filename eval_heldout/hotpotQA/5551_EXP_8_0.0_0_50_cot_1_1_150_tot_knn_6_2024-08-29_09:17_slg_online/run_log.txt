@@ -1,0 +1,1581 @@
+Namespace(model_size='8', temperature=0.0, task_start_index=0, task_end_index=50, prompt_sample='cot', n_generate_sample=1, n_evaluate_sample=1, iteration=150, algorithm='tot', cot_method='knn', run_name='5551_EXP_8_0.0_0_50_cot_1_1_150_tot_knn_6_2024-08-29_09:17_slg_online', log_file_path='5551_EXP_8_0.0_0_50_cot_1_1_150_tot_knn_6_2024-08-29_09:17_slg_online/run_log.txt', log_dir='5551_EXP_8_0.0_0_50_cot_1_1_150_tot_knn_6_2024-08-29_09:17_slg_online/log', cot_size=6)
+<hotpotqa.HotPotQATask object at 0x7fa4866b75d0>
+Testing Completion
+Connection Time: 0.957 s
+Get response: think: Now I don't find a mug in desk 2. Next, I need to check the drawers.
+
+============================================================
+Cluster: 131.179.88.84
+Port: 8056
+Model: 8bins
+Size: 8
+GPUs: [1]
+Latency: 0.957 s
+============================================================
+
+Testing Completion
+Connection Time: 0.953 s
+Get response: think: Now I don't find a mug in desk 2. Next, I need to check the drawers.
+
+============================================================
+Cluster: 131.179.88.84
+Port: 8064
+Model: 8bins
+Size: 8
+GPUs: [2]
+Latency: 0.953 s
+============================================================
+
+Testing Completion
+Timeout: server 131.179.88.84:8072 took longer than 0.953 seconds.
+Get response: None
+Testing Completion
+Timeout: server 131.179.88.84:8080 took longer than 0.953 seconds.
+Get response: None
+Testing Completion
+Timeout: server 131.179.88.84:8088 took longer than 0.953 seconds.
+Get response: None
+Testing Completion
+Connection Time: 0.835 s
+Get response: think: Now I don't find a mug in desk 2. Next, I need to check the drawers.
+
+============================================================
+Cluster: 131.179.88.84
+Port: 8096
+Model: 8bins
+Size: 8
+GPUs: [6]
+Latency: 0.835 s
+============================================================
+
+Testing Completion
+Timeout: server 131.179.88.84:8104 took longer than 0.835 seconds.
+Get response: None
+Fastest server is 131.179.88.84:8096 with latency 0.835 s
+Model server 8B built with latency_bound 0.8350622653961182.
+Testing Embedding
+Connection Time: 0.143 s
+Get embedding: [-0.013214111328125, -0.0125885009765625, 0.021514892578125, 0.01360321044921875, 0.0030364990234375, 0.00873565673828125, 0.0127105712890625, 0.01025390625, -0.0014104843139648438, 0.005100250244140625]
+
+============================================================
+Cluster: 131.179.88.84
+Port: 7777
+Model: 7embed
+Size: 7
+GPUs: [0]
+Latency: 0.143 s
+============================================================
+
+Fastest server is 131.179.88.84:7777 with latency 0.143 s
+Model server 7B built with latency_bound 0.1431570053100586.
+Trial
+0
+0 Question: Which magazine was started first Arthur's Magazine or First for Women?
+Fail
+0
+0 len(task_accs) 1 cnt_avg 0.0 
+
+1 Question: The Oberoi family is part of a hotel company that has a head office in what city?
+Fail
+1
+1 len(task_accs) 2 cnt_avg 0.0 
+
+2 Question: Musician and satirist Allie Goertz wrote a song about the "The Simpsons" character Milhouse, who Matt Groening named after who?
+Success
+2
+2 len(task_accs) 3 cnt_avg 0.3333333333333333 
+
+3 Question:  What nationality was James Henry Miller's wife?
+Fail
+3
+3 len(task_accs) 4 cnt_avg 0.25 
+
+4 Question: Cadmium Chloride is slightly soluble in this chemical, it is also called what?
+Fail
+4
+4 len(task_accs) 5 cnt_avg 0.2 
+
+5 Question: Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark?
+Fail
+5
+5 len(task_accs) 6 cnt_avg 0.16666666666666666 
+
+6 Question: Which genus of moth in the world's seventh-largest country contains only one species?
+Fail
+6
+6 len(task_accs) 7 cnt_avg 0.14285714285714285 
+
+7 Question: Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring.
+Fail
+7
+7 len(task_accs) 8 cnt_avg 0.125 
+
+8 Question: The Dutch-Belgian television series that "House of Anubis" was based on first aired in what year?
+Fail
+8
+8 len(task_accs) 9 cnt_avg 0.1111111111111111 
+
+9 Question: What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged?
+Fail
+9
+9 len(task_accs) 10 cnt_avg 0.1 
+
+10 Question: Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive?
+Fail
+10
+10 len(task_accs) 11 cnt_avg 0.09090909090909091 
+
+11 Question: Gunmen from Laredo starred which narrator of "Frontier"?
+Fail
+11
+11 len(task_accs) 12 cnt_avg 0.08333333333333333 
+
+12 Question: Where did the form of music played by Die Rhöner Säuwäntzt originate?
+Fail
+12
+12 len(task_accs) 13 cnt_avg 0.07692307692307693 
+
+13 Question: In which American football game was Malcolm Smith named Most Valuable player?
+Success
+13
+13 len(task_accs) 14 cnt_avg 0.14285714285714285 
+
+14 Question: What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail?
+Fail
+14
+14 len(task_accs) 15 cnt_avg 0.13333333333333333 
+
+15 Question: The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year?
+Fail
+15
+15 len(task_accs) 16 cnt_avg 0.125 
+
+16 Question: What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical? 
+Fail
+16
+16 len(task_accs) 17 cnt_avg 0.11764705882352941 
+
+17 Question: Human Error" is the season finale of the third season of a tv show that aired on what network?
+Fail
+17
+17 len(task_accs) 18 cnt_avg 0.1111111111111111 
+
+18 Question: Dua Lipa, an English singer, songwriter and model, the album spawned the number-one single "New Rules" is a song by English singer Dua Lipa from her eponymous debut studio album, released in what year?
+Success
+18
+18 len(task_accs) 19 cnt_avg 0.15789473684210525 
+
+19 Question: American politician Joe Heck ran unsuccessfully against Democrat Catherine Cortez Masto, a woman who previously served as the 32nd Attorney General of where?
+Success
+19
+19 len(task_accs) 20 cnt_avg 0.2 
+
+20 Question: Which state does the drug stores, of which the CEO is Warren Bryant, are located?
+Fail
+20
+20 len(task_accs) 21 cnt_avg 0.19047619047619047 
+
+21 Question: Which  American politician did Donahue replaced 
+Fail
+21
+21 len(task_accs) 22 cnt_avg 0.18181818181818182 
+
+22 Question: Which band was founded first, Hole, the rock band that Courtney Love was a frontwoman of, or The Wolfhounds?
+Fail
+22
+22 len(task_accs) 23 cnt_avg 0.17391304347826086 
+
+23 Question: How old is the female main protagonist of Catching Fire?
+Fail
+23
+23 len(task_accs) 24 cnt_avg 0.16666666666666666 
+
+24 Question: Chang Ucchin was born in korea during a time that ended with the conclusion of what? 
+Fail
+24
+24 len(task_accs) 25 cnt_avg 0.16 
+
+25 Question: Who is the director of the 2003 film which has scenes in it filmed at the Quality Cafe in Los Angeles?
+Fail
+25
+25 len(task_accs) 26 cnt_avg 0.15384615384615385 
+
+26 Question: New Faces of 1952 is a musical revue with songs and comedy skits, it helped jump start the career of which young performer, and American actress?
+Fail
+26
+26 len(task_accs) 27 cnt_avg 0.14814814814814814 
+
+27 Question: Were Pavel Urysohn and Leonid Levin known for the same type of work?
+Fail
+27
+27 len(task_accs) 28 cnt_avg 0.14285714285714285 
+
+28 Question: Are both The New Pornographers and Kings of Leon American rock bands?
+Fail
+28
+28 len(task_accs) 29 cnt_avg 0.13793103448275862 
+
+29 Question: 750 7th Avenue and 101 Park Avenue, are located in which city?
+Fail
+29
+29 len(task_accs) 30 cnt_avg 0.13333333333333333 
+
+30 Question: Which actress played the part of fictitious character Kimberly Ann Hart, in the franchise built around a live action superhero television series taking much of its footage from the Japanese tokusatsu 'Super Sentai'?
+Fail
+30
+30 len(task_accs) 31 cnt_avg 0.12903225806451613 
+
+31 Question: Who was born first, Pablo Trapero or Aleksander Ford?
+Fail
+31
+31 len(task_accs) 32 cnt_avg 0.125 
+
+32 Question: Are Jane and First for Women both women's magazines?
+Fail
+32
+32 len(task_accs) 33 cnt_avg 0.12121212121212122 
+
+33 Question: What profession does Nicholas Ray and Elia Kazan have in common?
+Fail
+33
+33 len(task_accs) 34 cnt_avg 0.11764705882352941 
+
+34 Question: Where is the company that purchased Aixam based in?
+Fail
+34
+34 len(task_accs) 35 cnt_avg 0.11428571428571428 
+
+35 Question: Which documentary is about Finnish rock groups, Adam Clayton Powell or The Saimaa Gesture?
+Success
+35
+35 len(task_accs) 36 cnt_avg 0.1388888888888889 
+
+36 Question: Who was inducted into the Rock and Roll Hall of Fame, David Lee Roth or Cia Berg?
+Success
+36
+36 len(task_accs) 37 cnt_avg 0.16216216216216217 
+
+37 Question: Zimbabwe's Guwe Secondary School has a sister school in what New York cunty?
+Fail
+37
+37 len(task_accs) 38 cnt_avg 0.15789473684210525 
+
+38 Question: The Royal Commission into Drug Trafficking (1977–1979) or Woodward Royal Commission was a royal commission initiated by the New South Wales Government to investigate drug trafficking in New South Wales, Australia, especially links between the New South Wales Police and Mafia, The Honoured Society, is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all of which country?  
+Fail
+38
+38 len(task_accs) 39 cnt_avg 0.15384615384615385 
+
+39 Question: The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, a former United States Air Force base located in the North Highlands area of Sacramento County, in which US state?
+Fail
+39
+39 len(task_accs) 40 cnt_avg 0.15 
+
+40 Question: The axial turbojet Pirna 014 was designed by engineers from this German aircraft and aircraft engine manufacturer based in which city?
+Fail
+40
+40 len(task_accs) 41 cnt_avg 0.14634146341463414 
+
+41 Question: Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula? 
+Fail
+41
+41 len(task_accs) 42 cnt_avg 0.14285714285714285 
+
+42 Question: Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from?
+Fail
+42
+42 len(task_accs) 43 cnt_avg 0.13953488372093023 
+
+43 Question: Guitars for Wounded Warriors is an album that was recorded in the village in which New York county?
+Fail
+43
+43 len(task_accs) 44 cnt_avg 0.13636363636363635 
+
+44 Question: What American country music singer-songwriter, born in May of 1942, sang a duet with her ex-husband the same year that he released the song "The Battle?"
+Fail
+44
+44 len(task_accs) 45 cnt_avg 0.13333333333333333 
+
+45 Question: Who was born first, Francis Nethersole or Elizabeth Stuart?
+Fail
+45
+45 len(task_accs) 46 cnt_avg 0.13043478260869565 
+
+46 Question: What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?
+Fail
+46
+46 len(task_accs) 47 cnt_avg 0.1276595744680851 
+
+47 Question: Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016?
+Fail
+47
+47 len(task_accs) 48 cnt_avg 0.125 
+
+48 Question: What male actor starred in The Messenger?
+Fail
+48
+48 len(task_accs) 49 cnt_avg 0.12244897959183673 
+
+49 Question: Are Gin and tonic and Paloma both cocktails based on tequila?
+Fail
+49
+49 len(task_accs) 50 cnt_avg 0.12 
+
+Trial
+1
+0 Question: Which magazine was started first Arthur's Magazine or First for Women?
+Fail
+0
+0 len(task_accs) 1 cnt_avg 0.0 
+
+1 Question: The Oberoi family is part of a hotel company that has a head office in what city?
+Fail
+1
+1 len(task_accs) 2 cnt_avg 0.0 
+
+3 Question:  What nationality was James Henry Miller's wife?
+Fail
+3
+3 len(task_accs) 3 cnt_avg 0.0 
+
+4 Question: Cadmium Chloride is slightly soluble in this chemical, it is also called what?
+Fail
+4
+4 len(task_accs) 4 cnt_avg 0.0 
+
+5 Question: Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark?
+Fail
+5
+5 len(task_accs) 5 cnt_avg 0.0 
+
+6 Question: Which genus of moth in the world's seventh-largest country contains only one species?
+Fail
+6
+6 len(task_accs) 6 cnt_avg 0.0 
+
+7 Question: Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring.
+Fail
+7
+7 len(task_accs) 7 cnt_avg 0.0 
+
+8 Question: The Dutch-Belgian television series that "House of Anubis" was based on first aired in what year?
+Fail
+8
+8 len(task_accs) 8 cnt_avg 0.0 
+
+9 Question: What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged?
+Fail
+9
+9 len(task_accs) 9 cnt_avg 0.0 
+
+10 Question: Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive?
+Fail
+10
+10 len(task_accs) 10 cnt_avg 0.0 
+
+11 Question: Gunmen from Laredo starred which narrator of "Frontier"?
+Fail
+11
+11 len(task_accs) 11 cnt_avg 0.0 
+
+12 Question: Where did the form of music played by Die Rhöner Säuwäntzt originate?
+Success
+12
+12 len(task_accs) 12 cnt_avg 0.08333333333333333 
+
+14 Question: What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail?
+Fail
+14
+14 len(task_accs) 13 cnt_avg 0.07692307692307693 
+
+15 Question: The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year?
+Fail
+15
+15 len(task_accs) 14 cnt_avg 0.07142857142857142 
+
+16 Question: What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical? 
+Fail
+16
+16 len(task_accs) 15 cnt_avg 0.06666666666666667 
+
+17 Question: Human Error" is the season finale of the third season of a tv show that aired on what network?
+Fail
+17
+17 len(task_accs) 16 cnt_avg 0.0625 
+
+20 Question: Which state does the drug stores, of which the CEO is Warren Bryant, are located?
+Fail
+20
+20 len(task_accs) 17 cnt_avg 0.058823529411764705 
+
+21 Question: Which  American politician did Donahue replaced 
+Fail
+21
+21 len(task_accs) 18 cnt_avg 0.05555555555555555 
+
+22 Question: Which band was founded first, Hole, the rock band that Courtney Love was a frontwoman of, or The Wolfhounds?
+Fail
+22
+22 len(task_accs) 19 cnt_avg 0.05263157894736842 
+
+23 Question: How old is the female main protagonist of Catching Fire?
+Fail
+23
+23 len(task_accs) 20 cnt_avg 0.05 
+
+24 Question: Chang Ucchin was born in korea during a time that ended with the conclusion of what? 
+Success
+24
+24 len(task_accs) 21 cnt_avg 0.09523809523809523 
+
+25 Question: Who is the director of the 2003 film which has scenes in it filmed at the Quality Cafe in Los Angeles?
+Success
+25
+25 len(task_accs) 22 cnt_avg 0.13636363636363635 
+
+26 Question: New Faces of 1952 is a musical revue with songs and comedy skits, it helped jump start the career of which young performer, and American actress?
+Success
+26
+26 len(task_accs) 23 cnt_avg 0.17391304347826086 
+
+27 Question: Were Pavel Urysohn and Leonid Levin known for the same type of work?
+Fail
+27
+27 len(task_accs) 24 cnt_avg 0.16666666666666666 
+
+28 Question: Are both The New Pornographers and Kings of Leon American rock bands?
+Fail
+28
+28 len(task_accs) 25 cnt_avg 0.16 
+
+29 Question: 750 7th Avenue and 101 Park Avenue, are located in which city?
+Success
+29
+29 len(task_accs) 26 cnt_avg 0.19230769230769232 
+
+30 Question: Which actress played the part of fictitious character Kimberly Ann Hart, in the franchise built around a live action superhero television series taking much of its footage from the Japanese tokusatsu 'Super Sentai'?
+Success
+30
+30 len(task_accs) 27 cnt_avg 0.2222222222222222 
+
+31 Question: Who was born first, Pablo Trapero or Aleksander Ford?
+Fail
+31
+31 len(task_accs) 28 cnt_avg 0.21428571428571427 
+
+32 Question: Are Jane and First for Women both women's magazines?
+Success
+32
+32 len(task_accs) 29 cnt_avg 0.2413793103448276 
+
+33 Question: What profession does Nicholas Ray and Elia Kazan have in common?
+Fail
+33
+33 len(task_accs) 30 cnt_avg 0.23333333333333334 
+
+34 Question: Where is the company that purchased Aixam based in?
+Fail
+34
+34 len(task_accs) 31 cnt_avg 0.22580645161290322 
+
+37 Question: Zimbabwe's Guwe Secondary School has a sister school in what New York cunty?
+Fail
+37
+37 len(task_accs) 32 cnt_avg 0.21875 
+
+38 Question: The Royal Commission into Drug Trafficking (1977–1979) or Woodward Royal Commission was a royal commission initiated by the New South Wales Government to investigate drug trafficking in New South Wales, Australia, especially links between the New South Wales Police and Mafia, The Honoured Society, is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all of which country?  
+Fail
+38
+38 len(task_accs) 33 cnt_avg 0.21212121212121213 
+
+39 Question: The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, a former United States Air Force base located in the North Highlands area of Sacramento County, in which US state?
+Success
+39
+39 len(task_accs) 34 cnt_avg 0.23529411764705882 
+
+40 Question: The axial turbojet Pirna 014 was designed by engineers from this German aircraft and aircraft engine manufacturer based in which city?
+Fail
+40
+40 len(task_accs) 35 cnt_avg 0.22857142857142856 
+
+41 Question: Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula? 
+Fail
+41
+41 len(task_accs) 36 cnt_avg 0.2222222222222222 
+
+42 Question: Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from?
+Fail
+42
+42 len(task_accs) 37 cnt_avg 0.21621621621621623 
+
+43 Question: Guitars for Wounded Warriors is an album that was recorded in the village in which New York county?
+Fail
+43
+43 len(task_accs) 38 cnt_avg 0.21052631578947367 
+
+44 Question: What American country music singer-songwriter, born in May of 1942, sang a duet with her ex-husband the same year that he released the song "The Battle?"
+Fail
+44
+44 len(task_accs) 39 cnt_avg 0.20512820512820512 
+
+45 Question: Who was born first, Francis Nethersole or Elizabeth Stuart?
+Fail
+45
+45 len(task_accs) 40 cnt_avg 0.2 
+
+46 Question: What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?
+Fail
+46
+46 len(task_accs) 41 cnt_avg 0.1951219512195122 
+
+47 Question: Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016?
+Fail
+47
+47 len(task_accs) 42 cnt_avg 0.19047619047619047 
+
+48 Question: What male actor starred in The Messenger?
+Fail
+48
+48 len(task_accs) 43 cnt_avg 0.18604651162790697 
+
+49 Question: Are Gin and tonic and Paloma both cocktails based on tequila?
+Fail
+49
+49 len(task_accs) 44 cnt_avg 0.18181818181818182 
+
+Trial
+2
+0 Question: Which magazine was started first Arthur's Magazine or First for Women?
+Fail
+0
+0 len(task_accs) 1 cnt_avg 0.0 
+
+1 Question: The Oberoi family is part of a hotel company that has a head office in what city?
+Fail
+1
+1 len(task_accs) 2 cnt_avg 0.0 
+
+3 Question:  What nationality was James Henry Miller's wife?
+Fail
+3
+3 len(task_accs) 3 cnt_avg 0.0 
+
+4 Question: Cadmium Chloride is slightly soluble in this chemical, it is also called what?
+Fail
+4
+4 len(task_accs) 4 cnt_avg 0.0 
+
+5 Question: Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark?
+Fail
+5
+5 len(task_accs) 5 cnt_avg 0.0 
+
+6 Question: Which genus of moth in the world's seventh-largest country contains only one species?
+Fail
+6
+6 len(task_accs) 6 cnt_avg 0.0 
+
+7 Question: Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring.
+Fail
+7
+7 len(task_accs) 7 cnt_avg 0.0 
+
+8 Question: The Dutch-Belgian television series that "House of Anubis" was based on first aired in what year?
+Fail
+8
+8 len(task_accs) 8 cnt_avg 0.0 
+
+9 Question: What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged?
+Fail
+9
+9 len(task_accs) 9 cnt_avg 0.0 
+
+10 Question: Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive?
+Fail
+10
+10 len(task_accs) 10 cnt_avg 0.0 
+
+11 Question: Gunmen from Laredo starred which narrator of "Frontier"?
+Fail
+11
+11 len(task_accs) 11 cnt_avg 0.0 
+
+14 Question: What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail?
+Fail
+14
+14 len(task_accs) 12 cnt_avg 0.0 
+
+15 Question: The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year?
+Fail
+15
+15 len(task_accs) 13 cnt_avg 0.0 
+
+16 Question: What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical? 
+Fail
+16
+16 len(task_accs) 14 cnt_avg 0.0 
+
+17 Question: Human Error" is the season finale of the third season of a tv show that aired on what network?
+Fail
+17
+17 len(task_accs) 15 cnt_avg 0.0 
+
+20 Question: Which state does the drug stores, of which the CEO is Warren Bryant, are located?
+Fail
+20
+20 len(task_accs) 16 cnt_avg 0.0 
+
+21 Question: Which  American politician did Donahue replaced 
+Fail
+21
+21 len(task_accs) 17 cnt_avg 0.0 
+
+22 Question: Which band was founded first, Hole, the rock band that Courtney Love was a frontwoman of, or The Wolfhounds?
+Success
+22
+22 len(task_accs) 18 cnt_avg 0.05555555555555555 
+
+23 Question: How old is the female main protagonist of Catching Fire?
+Fail
+23
+23 len(task_accs) 19 cnt_avg 0.05263157894736842 
+
+27 Question: Were Pavel Urysohn and Leonid Levin known for the same type of work?
+Success
+27
+27 len(task_accs) 20 cnt_avg 0.1 
+
+28 Question: Are both The New Pornographers and Kings of Leon American rock bands?
+Success
+28
+28 len(task_accs) 21 cnt_avg 0.14285714285714285 
+
+31 Question: Who was born first, Pablo Trapero or Aleksander Ford?
+Fail
+31
+31 len(task_accs) 22 cnt_avg 0.13636363636363635 
+
+33 Question: What profession does Nicholas Ray and Elia Kazan have in common?
+Success
+33
+33 len(task_accs) 23 cnt_avg 0.17391304347826086 
+
+34 Question: Where is the company that purchased Aixam based in?
+Fail
+34
+34 len(task_accs) 24 cnt_avg 0.16666666666666666 
+
+37 Question: Zimbabwe's Guwe Secondary School has a sister school in what New York cunty?
+Fail
+37
+37 len(task_accs) 25 cnt_avg 0.16 
+
+38 Question: The Royal Commission into Drug Trafficking (1977–1979) or Woodward Royal Commission was a royal commission initiated by the New South Wales Government to investigate drug trafficking in New South Wales, Australia, especially links between the New South Wales Police and Mafia, The Honoured Society, is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all of which country?  
+Success
+38
+38 len(task_accs) 26 cnt_avg 0.19230769230769232 
+
+40 Question: The axial turbojet Pirna 014 was designed by engineers from this German aircraft and aircraft engine manufacturer based in which city?
+Fail
+40
+40 len(task_accs) 27 cnt_avg 0.18518518518518517 
+
+41 Question: Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula? 
+Fail
+41
+41 len(task_accs) 28 cnt_avg 0.17857142857142858 
+
+42 Question: Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from?
+Fail
+42
+42 len(task_accs) 29 cnt_avg 0.1724137931034483 
+
+43 Question: Guitars for Wounded Warriors is an album that was recorded in the village in which New York county?
+Success
+43
+43 len(task_accs) 30 cnt_avg 0.2 
+
+44 Question: What American country music singer-songwriter, born in May of 1942, sang a duet with her ex-husband the same year that he released the song "The Battle?"
+Success
+44
+44 len(task_accs) 31 cnt_avg 0.22580645161290322 
+
+45 Question: Who was born first, Francis Nethersole or Elizabeth Stuart?
+Fail
+45
+45 len(task_accs) 32 cnt_avg 0.21875 
+
+46 Question: What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?
+Fail
+46
+46 len(task_accs) 33 cnt_avg 0.21212121212121213 
+
+47 Question: Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016?
+Fail
+47
+47 len(task_accs) 34 cnt_avg 0.20588235294117646 
+
+48 Question: What male actor starred in The Messenger?
+Fail
+48
+48 len(task_accs) 35 cnt_avg 0.2 
+
+49 Question: Are Gin and tonic and Paloma both cocktails based on tequila?
+Success
+49
+49 len(task_accs) 36 cnt_avg 0.2222222222222222 
+
+Trial
+3
+0 Question: Which magazine was started first Arthur's Magazine or First for Women?
+Success
+0
+0 len(task_accs) 1 cnt_avg 1.0 
+
+1 Question: The Oberoi family is part of a hotel company that has a head office in what city?
+Fail
+1
+1 len(task_accs) 2 cnt_avg 0.5 
+
+3 Question:  What nationality was James Henry Miller's wife?
+Success
+3
+3 len(task_accs) 3 cnt_avg 0.6666666666666666 
+
+4 Question: Cadmium Chloride is slightly soluble in this chemical, it is also called what?
+Fail
+4
+4 len(task_accs) 4 cnt_avg 0.5 
+
+5 Question: Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark?
+Fail
+5
+5 len(task_accs) 5 cnt_avg 0.4 
+
+6 Question: Which genus of moth in the world's seventh-largest country contains only one species?
+Fail
+6
+6 len(task_accs) 6 cnt_avg 0.3333333333333333 
+
+7 Question: Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring.
+Fail
+7
+7 len(task_accs) 7 cnt_avg 0.2857142857142857 
+
+8 Question: The Dutch-Belgian television series that "House of Anubis" was based on first aired in what year?
+Fail
+8
+8 len(task_accs) 8 cnt_avg 0.25 
+
+9 Question: What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged?
+Fail
+9
+9 len(task_accs) 9 cnt_avg 0.2222222222222222 
+
+10 Question: Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive?
+Fail
+10
+10 len(task_accs) 10 cnt_avg 0.2 
+
+11 Question: Gunmen from Laredo starred which narrator of "Frontier"?
+Fail
+11
+11 len(task_accs) 11 cnt_avg 0.18181818181818182 
+
+14 Question: What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail?
+Fail
+14
+14 len(task_accs) 12 cnt_avg 0.16666666666666666 
+
+15 Question: The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year?
+Fail
+15
+15 len(task_accs) 13 cnt_avg 0.15384615384615385 
+
+16 Question: What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical? 
+Fail
+16
+16 len(task_accs) 14 cnt_avg 0.14285714285714285 
+
+17 Question: Human Error" is the season finale of the third season of a tv show that aired on what network?
+Fail
+17
+17 len(task_accs) 15 cnt_avg 0.13333333333333333 
+
+20 Question: Which state does the drug stores, of which the CEO is Warren Bryant, are located?
+Fail
+20
+20 len(task_accs) 16 cnt_avg 0.125 
+
+21 Question: Which  American politician did Donahue replaced 
+Fail
+21
+21 len(task_accs) 17 cnt_avg 0.11764705882352941 
+
+23 Question: How old is the female main protagonist of Catching Fire?
+Fail
+23
+23 len(task_accs) 18 cnt_avg 0.1111111111111111 
+
+31 Question: Who was born first, Pablo Trapero or Aleksander Ford?
+Success
+31
+31 len(task_accs) 19 cnt_avg 0.15789473684210525 
+
+34 Question: Where is the company that purchased Aixam based in?
+Fail
+34
+34 len(task_accs) 20 cnt_avg 0.15 
+
+37 Question: Zimbabwe's Guwe Secondary School has a sister school in what New York cunty?
+Fail
+37
+37 len(task_accs) 21 cnt_avg 0.14285714285714285 
+
+40 Question: The axial turbojet Pirna 014 was designed by engineers from this German aircraft and aircraft engine manufacturer based in which city?
+Fail
+40
+40 len(task_accs) 22 cnt_avg 0.13636363636363635 
+
+41 Question: Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula? 
+Fail
+41
+41 len(task_accs) 23 cnt_avg 0.13043478260869565 
+
+42 Question: Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from?
+Fail
+42
+42 len(task_accs) 24 cnt_avg 0.125 
+
+45 Question: Who was born first, Francis Nethersole or Elizabeth Stuart?
+Fail
+45
+45 len(task_accs) 25 cnt_avg 0.12 
+
+46 Question: What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?
+Fail
+46
+46 len(task_accs) 26 cnt_avg 0.11538461538461539 
+
+47 Question: Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016?
+Fail
+47
+47 len(task_accs) 27 cnt_avg 0.1111111111111111 
+
+48 Question: What male actor starred in The Messenger?
+Fail
+48
+48 len(task_accs) 28 cnt_avg 0.10714285714285714 
+
+Trial
+4
+1 Question: The Oberoi family is part of a hotel company that has a head office in what city?
+Fail
+1
+1 len(task_accs) 1 cnt_avg 0.0 
+
+4 Question: Cadmium Chloride is slightly soluble in this chemical, it is also called what?
+Fail
+4
+4 len(task_accs) 2 cnt_avg 0.0 
+
+5 Question: Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark?
+Fail
+5
+5 len(task_accs) 3 cnt_avg 0.0 
+
+6 Question: Which genus of moth in the world's seventh-largest country contains only one species?
+Fail
+6
+6 len(task_accs) 4 cnt_avg 0.0 
+
+7 Question: Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring.
+Fail
+7
+7 len(task_accs) 5 cnt_avg 0.0 
+
+8 Question: The Dutch-Belgian television series that "House of Anubis" was based on first aired in what year?
+Fail
+8
+8 len(task_accs) 6 cnt_avg 0.0 
+
+9 Question: What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged?
+Fail
+9
+9 len(task_accs) 7 cnt_avg 0.0 
+
+10 Question: Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive?
+Fail
+10
+10 len(task_accs) 8 cnt_avg 0.0 
+
+11 Question: Gunmen from Laredo starred which narrator of "Frontier"?
+Fail
+11
+11 len(task_accs) 9 cnt_avg 0.0 
+
+14 Question: What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail?
+Fail
+14
+14 len(task_accs) 10 cnt_avg 0.0 
+
+15 Question: The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year?
+Fail
+15
+15 len(task_accs) 11 cnt_avg 0.0 
+
+16 Question: What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical? 
+Fail
+16
+16 len(task_accs) 12 cnt_avg 0.0 
+
+17 Question: Human Error" is the season finale of the third season of a tv show that aired on what network?
+Success
+17
+17 len(task_accs) 13 cnt_avg 0.07692307692307693 
+
+20 Question: Which state does the drug stores, of which the CEO is Warren Bryant, are located?
+Fail
+20
+20 len(task_accs) 14 cnt_avg 0.07142857142857142 
+
+21 Question: Which  American politician did Donahue replaced 
+Fail
+21
+21 len(task_accs) 15 cnt_avg 0.06666666666666667 
+
+23 Question: How old is the female main protagonist of Catching Fire?
+Fail
+23
+23 len(task_accs) 16 cnt_avg 0.0625 
+
+34 Question: Where is the company that purchased Aixam based in?
+Fail
+34
+34 len(task_accs) 17 cnt_avg 0.058823529411764705 
+
+37 Question: Zimbabwe's Guwe Secondary School has a sister school in what New York cunty?
+Fail
+37
+37 len(task_accs) 18 cnt_avg 0.05555555555555555 
+
+40 Question: The axial turbojet Pirna 014 was designed by engineers from this German aircraft and aircraft engine manufacturer based in which city?
+Fail
+40
+40 len(task_accs) 19 cnt_avg 0.05263157894736842 
+
+41 Question: Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula? 
+Fail
+41
+41 len(task_accs) 20 cnt_avg 0.05 
+
+42 Question: Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from?
+Fail
+42
+42 len(task_accs) 21 cnt_avg 0.047619047619047616 
+
+45 Question: Who was born first, Francis Nethersole or Elizabeth Stuart?
+Fail
+45
+45 len(task_accs) 22 cnt_avg 0.045454545454545456 
+
+46 Question: What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?
+Fail
+46
+46 len(task_accs) 23 cnt_avg 0.043478260869565216 
+
+47 Question: Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016?
+Fail
+47
+47 len(task_accs) 24 cnt_avg 0.041666666666666664 
+
+48 Question: What male actor starred in The Messenger?
+Fail
+48
+48 len(task_accs) 25 cnt_avg 0.04 
+
+Trial
+5
+1 Question: The Oberoi family is part of a hotel company that has a head office in what city?
+Fail
+1
+1 len(task_accs) 1 cnt_avg 0.0 
+
+4 Question: Cadmium Chloride is slightly soluble in this chemical, it is also called what?
+Fail
+4
+4 len(task_accs) 2 cnt_avg 0.0 
+
+5 Question: Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark?
+Fail
+5
+5 len(task_accs) 3 cnt_avg 0.0 
+
+6 Question: Which genus of moth in the world's seventh-largest country contains only one species?
+Fail
+6
+6 len(task_accs) 4 cnt_avg 0.0 
+
+7 Question: Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring.
+Fail
+7
+7 len(task_accs) 5 cnt_avg 0.0 
+
+8 Question: The Dutch-Belgian television series that "House of Anubis" was based on first aired in what year?
+Fail
+8
+8 len(task_accs) 6 cnt_avg 0.0 
+
+9 Question: What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged?
+Fail
+9
+9 len(task_accs) 7 cnt_avg 0.0 
+
+10 Question: Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive?
+Fail
+10
+10 len(task_accs) 8 cnt_avg 0.0 
+
+11 Question: Gunmen from Laredo starred which narrator of "Frontier"?
+Fail
+11
+11 len(task_accs) 9 cnt_avg 0.0 
+
+14 Question: What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail?
+Fail
+14
+14 len(task_accs) 10 cnt_avg 0.0 
+
+15 Question: The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year?
+Fail
+15
+15 len(task_accs) 11 cnt_avg 0.0 
+
+16 Question: What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical? 
+Fail
+16
+16 len(task_accs) 12 cnt_avg 0.0 
+
+20 Question: Which state does the drug stores, of which the CEO is Warren Bryant, are located?
+Fail
+20
+20 len(task_accs) 13 cnt_avg 0.0 
+
+21 Question: Which  American politician did Donahue replaced 
+Fail
+21
+21 len(task_accs) 14 cnt_avg 0.0 
+
+23 Question: How old is the female main protagonist of Catching Fire?
+Fail
+23
+23 len(task_accs) 15 cnt_avg 0.0 
+
+34 Question: Where is the company that purchased Aixam based in?
+Fail
+34
+34 len(task_accs) 16 cnt_avg 0.0 
+
+37 Question: Zimbabwe's Guwe Secondary School has a sister school in what New York cunty?
+Fail
+37
+37 len(task_accs) 17 cnt_avg 0.0 
+
+40 Question: The axial turbojet Pirna 014 was designed by engineers from this German aircraft and aircraft engine manufacturer based in which city?
+Fail
+40
+40 len(task_accs) 18 cnt_avg 0.0 
+
+41 Question: Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula? 
+Fail
+41
+41 len(task_accs) 19 cnt_avg 0.0 
+
+42 Question: Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from?
+Fail
+42
+42 len(task_accs) 20 cnt_avg 0.0 
+
+45 Question: Who was born first, Francis Nethersole or Elizabeth Stuart?
+Fail
+45
+45 len(task_accs) 21 cnt_avg 0.0 
+
+46 Question: What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?
+Fail
+46
+46 len(task_accs) 22 cnt_avg 0.0 
+
+47 Question: Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016?
+Fail
+47
+47 len(task_accs) 23 cnt_avg 0.0 
+
+48 Question: What male actor starred in The Messenger?
+Fail
+48
+48 len(task_accs) 24 cnt_avg 0.0 
+
+Trial
+6
+1 Question: The Oberoi family is part of a hotel company that has a head office in what city?
+Fail
+1
+1 len(task_accs) 1 cnt_avg 0.0 
+
+4 Question: Cadmium Chloride is slightly soluble in this chemical, it is also called what?
+Fail
+4
+4 len(task_accs) 2 cnt_avg 0.0 
+
+5 Question: Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark?
+Fail
+5
+5 len(task_accs) 3 cnt_avg 0.0 
+
+6 Question: Which genus of moth in the world's seventh-largest country contains only one species?
+Fail
+6
+6 len(task_accs) 4 cnt_avg 0.0 
+
+7 Question: Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring.
+Fail
+7
+7 len(task_accs) 5 cnt_avg 0.0 
+
+8 Question: The Dutch-Belgian television series that "House of Anubis" was based on first aired in what year?
+Fail
+8
+8 len(task_accs) 6 cnt_avg 0.0 
+
+9 Question: What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged?
+Fail
+9
+9 len(task_accs) 7 cnt_avg 0.0 
+
+10 Question: Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive?
+Fail
+10
+10 len(task_accs) 8 cnt_avg 0.0 
+
+11 Question: Gunmen from Laredo starred which narrator of "Frontier"?
+Fail
+11
+11 len(task_accs) 9 cnt_avg 0.0 
+
+14 Question: What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail?
+Fail
+14
+14 len(task_accs) 10 cnt_avg 0.0 
+
+15 Question: The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year?
+Fail
+15
+15 len(task_accs) 11 cnt_avg 0.0 
+
+16 Question: What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical? 
+Fail
+16
+16 len(task_accs) 12 cnt_avg 0.0 
+
+20 Question: Which state does the drug stores, of which the CEO is Warren Bryant, are located?
+Fail
+20
+20 len(task_accs) 13 cnt_avg 0.0 
+
+21 Question: Which  American politician did Donahue replaced 
+Fail
+21
+21 len(task_accs) 14 cnt_avg 0.0 
+
+23 Question: How old is the female main protagonist of Catching Fire?
+Fail
+23
+23 len(task_accs) 15 cnt_avg 0.0 
+
+34 Question: Where is the company that purchased Aixam based in?
+Fail
+34
+34 len(task_accs) 16 cnt_avg 0.0 
+
+37 Question: Zimbabwe's Guwe Secondary School has a sister school in what New York cunty?
+Success
+37
+37 len(task_accs) 17 cnt_avg 0.058823529411764705 
+
+40 Question: The axial turbojet Pirna 014 was designed by engineers from this German aircraft and aircraft engine manufacturer based in which city?
+Fail
+40
+40 len(task_accs) 18 cnt_avg 0.05555555555555555 
+
+41 Question: Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula? 
+Fail
+41
+41 len(task_accs) 19 cnt_avg 0.05263157894736842 
+
+42 Question: Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from?
+Fail
+42
+42 len(task_accs) 20 cnt_avg 0.05 
+
+45 Question: Who was born first, Francis Nethersole or Elizabeth Stuart?
+Fail
+45
+45 len(task_accs) 21 cnt_avg 0.047619047619047616 
+
+46 Question: What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?
+Fail
+46
+46 len(task_accs) 22 cnt_avg 0.045454545454545456 
+
+47 Question: Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016?
+Fail
+47
+47 len(task_accs) 23 cnt_avg 0.043478260869565216 
+
+48 Question: What male actor starred in The Messenger?
+Fail
+48
+48 len(task_accs) 24 cnt_avg 0.041666666666666664 
+
+Trial
+7
+1 Question: The Oberoi family is part of a hotel company that has a head office in what city?
+Fail
+1
+1 len(task_accs) 1 cnt_avg 0.0 
+
+4 Question: Cadmium Chloride is slightly soluble in this chemical, it is also called what?
+Fail
+4
+4 len(task_accs) 2 cnt_avg 0.0 
+
+5 Question: Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark?
+Fail
+5
+5 len(task_accs) 3 cnt_avg 0.0 
+
+6 Question: Which genus of moth in the world's seventh-largest country contains only one species?
+Fail
+6
+6 len(task_accs) 4 cnt_avg 0.0 
+
+7 Question: Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring.
+Fail
+7
+7 len(task_accs) 5 cnt_avg 0.0 
+
+8 Question: The Dutch-Belgian television series that "House of Anubis" was based on first aired in what year?
+Success
+8
+8 len(task_accs) 6 cnt_avg 0.16666666666666666 
+
+9 Question: What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged?
+Fail
+9
+9 len(task_accs) 7 cnt_avg 0.14285714285714285 
+
+10 Question: Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive?
+Fail
+10
+10 len(task_accs) 8 cnt_avg 0.125 
+
+11 Question: Gunmen from Laredo starred which narrator of "Frontier"?
+Fail
+11
+11 len(task_accs) 9 cnt_avg 0.1111111111111111 
+
+14 Question: What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail?
+Fail
+14
+14 len(task_accs) 10 cnt_avg 0.1 
+
+15 Question: The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year?
+Fail
+15
+15 len(task_accs) 11 cnt_avg 0.09090909090909091 
+
+16 Question: What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical? 
+Fail
+16
+16 len(task_accs) 12 cnt_avg 0.08333333333333333 
+
+20 Question: Which state does the drug stores, of which the CEO is Warren Bryant, are located?
+Fail
+20
+20 len(task_accs) 13 cnt_avg 0.07692307692307693 
+
+21 Question: Which  American politician did Donahue replaced 
+Fail
+21
+21 len(task_accs) 14 cnt_avg 0.07142857142857142 
+
+23 Question: How old is the female main protagonist of Catching Fire?
+Fail
+23
+23 len(task_accs) 15 cnt_avg 0.06666666666666667 
+
+34 Question: Where is the company that purchased Aixam based in?
+Fail
+34
+34 len(task_accs) 16 cnt_avg 0.0625 
+
+40 Question: The axial turbojet Pirna 014 was designed by engineers from this German aircraft and aircraft engine manufacturer based in which city?
+Fail
+40
+40 len(task_accs) 17 cnt_avg 0.058823529411764705 
+
+41 Question: Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula? 
+Fail
+41
+41 len(task_accs) 18 cnt_avg 0.05555555555555555 
+
+42 Question: Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from?
+Fail
+42
+42 len(task_accs) 19 cnt_avg 0.05263157894736842 
+
+45 Question: Who was born first, Francis Nethersole or Elizabeth Stuart?
+Fail
+45
+45 len(task_accs) 20 cnt_avg 0.05 
+
+46 Question: What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?
+Fail
+46
+46 len(task_accs) 21 cnt_avg 0.047619047619047616 
+
+47 Question: Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016?
+Fail
+47
+47 len(task_accs) 22 cnt_avg 0.045454545454545456 
+
+48 Question: What male actor starred in The Messenger?
+Fail
+48
+48 len(task_accs) 23 cnt_avg 0.043478260869565216 
+
+Trial
+8
+1 Question: The Oberoi family is part of a hotel company that has a head office in what city?
+Fail
+1
+1 len(task_accs) 1 cnt_avg 0.0 
+
+4 Question: Cadmium Chloride is slightly soluble in this chemical, it is also called what?
+Fail
+4
+4 len(task_accs) 2 cnt_avg 0.0 
+
+5 Question: Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark?
+Fail
+5
+5 len(task_accs) 3 cnt_avg 0.0 
+
+6 Question: Which genus of moth in the world's seventh-largest country contains only one species?
+Fail
+6
+6 len(task_accs) 4 cnt_avg 0.0 
+
+7 Question: Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring.
+Fail
+7
+7 len(task_accs) 5 cnt_avg 0.0 
+
+9 Question: What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged?
+Fail
+9
+9 len(task_accs) 6 cnt_avg 0.0 
+
+10 Question: Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive?
+Fail
+10
+10 len(task_accs) 7 cnt_avg 0.0 
+
+11 Question: Gunmen from Laredo starred which narrator of "Frontier"?
+Fail
+11
+11 len(task_accs) 8 cnt_avg 0.0 
+
+14 Question: What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail?
+Fail
+14
+14 len(task_accs) 9 cnt_avg 0.0 
+
+15 Question: The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year?
+Fail
+15
+15 len(task_accs) 10 cnt_avg 0.0 
+
+16 Question: What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical? 
+Fail
+16
+16 len(task_accs) 11 cnt_avg 0.0 
+
+20 Question: Which state does the drug stores, of which the CEO is Warren Bryant, are located?
+Fail
+20
+20 len(task_accs) 12 cnt_avg 0.0 
+
+21 Question: Which  American politician did Donahue replaced 
+Fail
+21
+21 len(task_accs) 13 cnt_avg 0.0 
+
+23 Question: How old is the female main protagonist of Catching Fire?
+Fail
+23
+23 len(task_accs) 14 cnt_avg 0.0 
+
+34 Question: Where is the company that purchased Aixam based in?
+Fail
+34
+34 len(task_accs) 15 cnt_avg 0.0 
+
+40 Question: The axial turbojet Pirna 014 was designed by engineers from this German aircraft and aircraft engine manufacturer based in which city?
+Fail
+40
+40 len(task_accs) 16 cnt_avg 0.0 
+
+41 Question: Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula? 
+Fail
+41
+41 len(task_accs) 17 cnt_avg 0.0 
+
+42 Question: Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from?
+Fail
+42
+42 len(task_accs) 18 cnt_avg 0.0 
+
+45 Question: Who was born first, Francis Nethersole or Elizabeth Stuart?
+Fail
+45
+45 len(task_accs) 19 cnt_avg 0.0 
+
+46 Question: What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?
+Fail
+46
+46 len(task_accs) 20 cnt_avg 0.0 
+
+47 Question: Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016?
+Fail
+47
+47 len(task_accs) 21 cnt_avg 0.0 
+
+48 Question: What male actor starred in The Messenger?
+Fail
+48
+48 len(task_accs) 22 cnt_avg 0.0 
+
+Trial
+9
+1 Question: The Oberoi family is part of a hotel company that has a head office in what city?
+Fail
+1
+1 len(task_accs) 1 cnt_avg 0.0 
+
+4 Question: Cadmium Chloride is slightly soluble in this chemical, it is also called what?
+Fail
+4
+4 len(task_accs) 2 cnt_avg 0.0 
+
+5 Question: Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark?
+Fail
+5
+5 len(task_accs) 3 cnt_avg 0.0 
+
+6 Question: Which genus of moth in the world's seventh-largest country contains only one species?
+Fail
+6
+6 len(task_accs) 4 cnt_avg 0.0 
+
+7 Question: Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring.
+Fail
+7
+7 len(task_accs) 5 cnt_avg 0.0 
+
+9 Question: What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged?
+Fail
+9
+9 len(task_accs) 6 cnt_avg 0.0 
+
+10 Question: Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive?
+Fail
+10
+10 len(task_accs) 7 cnt_avg 0.0 
+
+11 Question: Gunmen from Laredo starred which narrator of "Frontier"?
+Fail
+11
+11 len(task_accs) 8 cnt_avg 0.0 
+
+14 Question: What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail?
+Fail
+14
+14 len(task_accs) 9 cnt_avg 0.0 
+
+15 Question: The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year?
+Fail
+15
+15 len(task_accs) 10 cnt_avg 0.0 
+
+16 Question: What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical? 
+Fail
+16
+16 len(task_accs) 11 cnt_avg 0.0 
+
+20 Question: Which state does the drug stores, of which the CEO is Warren Bryant, are located?
+Fail
+20
+20 len(task_accs) 12 cnt_avg 0.0 
+
+21 Question: Which  American politician did Donahue replaced 
+Fail
+21
+21 len(task_accs) 13 cnt_avg 0.0 
+
+23 Question: How old is the female main protagonist of Catching Fire?
+Fail
+23
+23 len(task_accs) 14 cnt_avg 0.0 
+
+34 Question: Where is the company that purchased Aixam based in?
+Fail
+34
+34 len(task_accs) 15 cnt_avg 0.0 
+
+40 Question: The axial turbojet Pirna 014 was designed by engineers from this German aircraft and aircraft engine manufacturer based in which city?
+Fail
+40
+40 len(task_accs) 16 cnt_avg 0.0 
+
+41 Question: Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula? 
+Success
+41
+41 len(task_accs) 17 cnt_avg 0.058823529411764705 
+
+42 Question: Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from?
+Fail
+42
+42 len(task_accs) 18 cnt_avg 0.05555555555555555 
+
+45 Question: Who was born first, Francis Nethersole or Elizabeth Stuart?
+Fail
+45
+45 len(task_accs) 19 cnt_avg 0.05263157894736842 
+
+46 Question: What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?
+Fail
+46
+46 len(task_accs) 20 cnt_avg 0.05 
+
+47 Question: Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016?
+Fail
+47
+47 len(task_accs) 21 cnt_avg 0.047619047619047616 
+
+48 Question: What male actor starred in The Messenger?
+Fail
+48
+48 len(task_accs) 22 cnt_avg 0.045454545454545456 
+
+[6, 14, 22, 25, 26, 26, 27, 28, 28, 29]

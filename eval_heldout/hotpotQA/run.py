@@ -48,6 +48,8 @@ def run(args):
     succ_trjs = []
     trajectories = []
     embedding_array = np.zeros((0, 3584))
+    tongji=[]
+    cnt=0
     for trial in range(10):
         print("Trial")
         print(trial)
@@ -64,17 +66,20 @@ def run(args):
                 continue
             prev = None
             knnret = []
-            if i in lose:
+            if (i in lose) and args.cot_size>0:
                 prev = lose[i]
                 # doing knn here with prev lose
                 # knnret=random_selection(succ_trjs,5)
-                fail_vec = online_embed(str(prev))
-                _, indices = emb_db.search(
-                    np.array(fail_vec).reshape(1, -1).astype("float32"),
-                    3,
-                )
-                for ind in indices[0]:
-                    knnret.append(trajectories[ind])
+                if args.cot_method=="knn":
+                    fail_vec = online_embed(str(prev))
+                    _, indices = emb_db.search(
+                        np.array(fail_vec).reshape(1, -1).astype("float32"),
+                        args.cot_size,
+                    )
+                    for ind in indices[0]:
+                        knnret.append(trajectories[ind])
+                else:
+                    knnret=random.sample(trajectories, min(args.cot_size,len(trajectories)))
             state, value, all_nodes, reward, em, failt, succt = dfs_search(
                 args, task, i, args.iteration, knnret
             )
@@ -83,6 +88,7 @@ def run(args):
                 print(i)
                 lose[i] = failt[0]
             if succt:
+                cnt=cnt+1
                 print("Success")
                 print(i)
                 wins[i] = 1
@@ -100,6 +106,8 @@ def run(args):
             vec = online_embed(str(trj))
             trajectories.append(trj)
             embedding_array = np.vstack((embedding_array, np.array(vec)))
+        tongji.append(cnt)
+    print(tongji)
     n = args.task_end_index - args.task_start_index
 
 
@@ -118,6 +126,7 @@ def parse_args():
     args.add_argument("--run_name", type=str)
     args.add_argument("--log_file_path", type=str)
     args.add_argument("--log_dir", type=str)
+    args.add_argument("--cot_size", type=int, default=0)
     args = args.parse_args()
     return args
 

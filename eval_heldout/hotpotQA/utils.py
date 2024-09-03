@@ -214,11 +214,11 @@ if __name__ == "__main__":
         complition = server.get_completion_or_embedding("8", message)
         print(complition)
 
-    embedding = None
-    for i in range(10):
-        print(f"Embedding {i}:")
-        embedding = server.get_completion_or_embedding(
-            "7",
-            message="As a general guideline, the CDC's average requirement of protein for women ages 19 to 70 is 46 grams per day. But, as you can see from this chart, you'll need to increase that if you're expecting or training for a marathon. Check out the chart below to see how much protein you should be eating each day.",
-            get_embedding=True,
-        )
+    # embedding = None
+    # for i in range(10):
+    #     print(f"Embedding {i}:")
+    #     embedding = server.get_completion_or_embedding(
+    #         "7",
+    #         message="As a general guideline, the CDC's average requirement of protein for women ages 19 to 70 is 46 grams per day. But, as you can see from this chart, you'll need to increase that if you're expecting or training for a marathon. Check out the chart below to see how much protein you should be eating each day.",
+    #         get_embedding=True,
+    #     )

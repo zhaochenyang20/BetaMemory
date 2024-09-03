@@ -78,48 +78,48 @@ Completion_Servers = [
     #     model_path=MODEL_NAME_8B,
     #     gpus=[0],
     # ),
-    Server(
-        ip=SERVER_IP_UCLA_04,
-        port=8056,
-        model_size="8",
-        model_path=MODEL_NAME_8B,
-        gpus=[1],
-    ),
-    Server(
-        ip=SERVER_IP_UCLA_04,
-        port=8064,
-        model_size="8",
-        model_path=MODEL_NAME_8B,
-        gpus=[2],
-    ),
-    Server(
-        ip=SERVER_IP_UCLA_04,
-        port=8072,
-        model_size="8",
-        model_path=MODEL_NAME_8B,
-        gpus=[3],
-    ),
-    Server(
-        ip=SERVER_IP_UCLA_04,
-        port=8080,
-        model_size="8",
-        model_path=MODEL_NAME_8B,
-        gpus=[4],
-    ),
-    Server(
-        ip=SERVER_IP_UCLA_04,
-        port=8088,
-        model_size="8",
-        model_path=MODEL_NAME_8B,
-        gpus=[5],
-    ),
-    Server(
-        ip=SERVER_IP_UCLA_04,
-        port=8096,
-        model_size="8",
-        model_path=MODEL_NAME_8B,
-        gpus=[6],
-    ),
+    # Server(
+    #     ip=SERVER_IP_UCLA_04,
+    #     port=8056,
+    #     model_size="8",
+    #     model_path=MODEL_NAME_8B,
+    #     gpus=[1],
+    # ),
+    # Server(
+    #     ip=SERVER_IP_UCLA_04,
+    #     port=8064,
+    #     model_size="8",
+    #     model_path=MODEL_NAME_8B,
+    #     gpus=[2],
+    # ),
+    # Server(
+    #     ip=SERVER_IP_UCLA_04,
+    #     port=8072,
+    #     model_size="8",
+    #     model_path=MODEL_NAME_8B,
+    #     gpus=[3],
+    # ),
+    # Server(
+    #     ip=SERVER_IP_UCLA_04,
+    #     port=8080,
+    #     model_size="8",
+    #     model_path=MODEL_NAME_8B,
+    #     gpus=[4],
+    # ),
+    # Server(
+    #     ip=SERVER_IP_UCLA_04,
+    #     port=8088,
+    #     model_size="8",
+    #     model_path=MODEL_NAME_8B,
+    #     gpus=[5],
+    # ),
+    # Server(
+    #     ip=SERVER_IP_UCLA_04,
+    #     port=8096,
+    #     model_size="8",
+    #     model_path=MODEL_NAME_8B,
+    #     gpus=[6],
+    # ),
     Server(
         ip=SERVER_IP_UCLA_04,
         port=8104,
@@ -167,13 +167,13 @@ Embedding_Servers = [
     #    model_path=EMBEDDING_7B,
     #    gpus=[],
     # ),
-    Server(
-        ip=SERVER_IP_UCLA_04,
-        port=7777,
-        model_size="7",
-        model_path=EMBEDDING_7B,
-        gpus=[0],
-    ),
+    # Server(
+    #     ip=SERVER_IP_UCLA_04,
+    #     port=7777,
+    #     model_size="7",
+    #     model_path=EMBEDDING_7B,
+    #     gpus=[0],
+    # ),
     # Server(
     #    ip=SERVER_IP_UCLA_04,
     #    port=7784,
@@ -403,5 +403,5 @@ if __name__ == "__main__":
     # server, min_latency = get_fastest_server(initial_latency=10, model_size="7", test_embedding_servers=True)
     # print(server)
 
-    get_all_latency(test_embedding_servers=True)
+    # get_all_latency(test_embedding_servers=True)
     get_all_latency(test_embedding_servers=False)

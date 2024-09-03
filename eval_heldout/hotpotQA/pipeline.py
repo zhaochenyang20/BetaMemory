@@ -5,30 +5,20 @@ from itertools import product
 from pathlib import Path
 import os, json
 
-MODEL_SIZES = ["8"]
-TEMPERATURES = [0.1, 0.2, 0.3, 0.4]
-TASK_START_INDEXS = [900, 950]
-TASK_END_INDEXS = [1000, 1100]
-PROMPT_SMAPLES = ["standard", "cot"]
-N_GENERATE_SAMPLES = [1, 2, 3]
-N_EVALUATE_SAMPLES = [1, 2, 3]
-ITERATIONS = [50, 60]
-ALGORITHMS = ["lats", "rap", "tot"]
-COT_METHODS = ["knn", "random", None]
-
-PREFIX = "1"
+PREFIX = "5559"
 SUFFIX = "slg_online"
 
 MODEL_SIZES = ["8"]
-TEMPERATURES = [0.1, 0.2]
-TASK_START_INDEXS = [900, 950]
-TASK_END_INDEXS = [1000, 1100]
-PROMPT_SMAPLES = ["standard", "cot"]
+TEMPERATURES = [0.0]
+TASK_START_INDEXS = [0]
+TASK_END_INDEXS = [50]
+PROMPT_SMAPLES = ["cot"]
 N_GENERATE_SAMPLES = [1]
 N_EVALUATE_SAMPLES = [1]
-ITERATIONS = [50]
-ALGORITHMS = ["lats"]
-COT_METHODS = ["knn", "random", None]
+ITERATIONS = [150]
+ALGORITHMS = ["tot"]
+COT_METHODS = ["knn", "random"]
+COT_SIZE=range(0,11)
 
 VARIANCES = list(
     product(
@@ -42,6 +32,7 @@ VARIANCES = list(
         ITERATIONS,
         ALGORITHMS,
         COT_METHODS,
+        COT_SIZE,
     )
 )
 
@@ -61,13 +52,14 @@ def get_running_command(
     iteration,
     algorithm,
     cot_method,
+    cot_size,
 ):
-    run_name = f"{PREFIX}_EXP_{model_size}_{temperature}_{task_start_index}_{task_end_index}_{prompt_sample}_{n_generate_sample}_{n_evaluate_sample}_{iteration}_{algorithm}_{cot_method}_{get_format_time()}_{SUFFIX}"
+    run_name = f"{PREFIX}_EXP_{model_size}_{temperature}_{task_start_index}_{task_end_index}_{prompt_sample}_{n_generate_sample}_{n_evaluate_sample}_{iteration}_{algorithm}_{cot_method}_{cot_size}_{get_format_time()}_{SUFFIX}"
     os.system(f"mkdir {run_name}")
     log_file_path = f"{run_name}/run_log.txt"
     log_dir = f"{run_name}/log"
     command = (
-        f"python run.py --model_size {model_size} --temperature {temperature} --task_start_index {task_start_index} --task_end_index {task_end_index} "
+        f"python run.py --model_size {model_size} --temperature {temperature} --task_start_index {task_start_index} --task_end_index {task_end_index} --cot_size {cot_size} "
         f"--prompt_sample {prompt_sample} --n_generate_sample {n_generate_sample}  --n_evaluate_sample {n_evaluate_sample}  "
         f"--iteration {iteration} --algorithm {algorithm} --cot_method {cot_method} --run_name '{run_name}' --log_dir {log_dir} "
         f"--log_file_path {log_file_path} >> {log_file_path} "
@@ -87,6 +79,7 @@ def query(variance):
         iteration,
         algorithm,
         cot_method,
+        cot_size,
     ) = variance
     run_name_prefix = f"{PREFIX}_EXP_{model_size}_{temperature}_{task_start_index}_{task_end_index}_{prompt_sample}_{n_generate_sample}_{n_evaluate_sample}_{iteration}_{algorithm}_{cot_method}_"
     running_paths = [each for each in RUNNING_PATHS if run_name_prefix in str(each)]
@@ -102,6 +95,7 @@ def query(variance):
             iteration,
             algorithm,
             cot_method,
+            cot_size,
         )
         assert running_command is not None
         return False, [running_command]
@@ -126,6 +120,7 @@ def query(variance):
                 iteration,
                 algorithm,
                 cot_method,
+                cot_size,
             )
             return False, [
                 f"mv {str(running_paths[0])} /data/chenyang/trash",

@@ -1,0 +1,17 @@
+{
+    "model_size": "8",
+    "temperature": 0.0,
+    "task_start_index": 0,
+    "task_end_index": 50,
+    "prompt_sample": "cot",
+    "n_generate_sample": 1,
+    "n_evaluate_sample": 1,
+    "iteration": 150,
+    "algorithm": "tot",
+    "cot_method": "random",
+    "run_name": "5558_EXP_8_0.0_0_50_cot_1_1_150_tot_random_10_2024-08-29_09:18_slg_online",
+    "log_file_path": "5558_EXP_8_0.0_0_50_cot_1_1_150_tot_random_10_2024-08-29_09:18_slg_online/run_log.txt",
+    "log_dir": "5558_EXP_8_0.0_0_50_cot_1_1_150_tot_random_10_2024-08-29_09:18_slg_online/log",
+    "cot_size": 10,
+    "is_running": true
+}
